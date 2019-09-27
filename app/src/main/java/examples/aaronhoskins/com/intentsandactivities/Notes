@@ -1,0 +1,107 @@
+Key section of android applications
+    Manifest
+        - Manifest is used to register components, permissions, features,
+            and (on newer versions) Network Certificates (SSL Cert.)
+    Gradle
+        - Build system used by the android compiler
+        - Dependency for the application (third party libs)
+        - Setup proguard
+        - Define if using certain android features that are not available
+            by Default (Databinding)
+        - Gradle is written using Groovy
+    Resources
+        - file found in the res folder
+        - Common Res.
+            - drawables - images
+            - mipmap - icons
+            - layouts - xml scripts that define view groups
+            - values
+                - string - static string resources
+                - color - defined colors for application
+                - styles - themes used to define how view look
+
+                - Other res to mention:
+                    - anim - animations
+                    - raw - raw file resources
+                    - dimen - static dimensions values for views
+
+Activities
+    - Base UI component of android
+    - ALL UI components will be associated with an activity
+    - Activities have a life cycle
+        - onCreate
+            - instantiating the activity into memory
+        - onStart
+            - Activity is visible but not intractable yet
+            - Activity is coming into foreground
+            - Register components (and some third party libs)
+        - onResume
+            - Activity is both visible and intractable
+        - onPause
+            - Activity is visible but not intractable anymore
+            - Activity is going into background
+        - onStop
+             - Activity is no longer visible nor intractable
+             - Activity is in the background
+             - unregister components (and some third party libs)
+        - onRestart
+            - Activity is called back to be loaded into foreground
+        - onDestroy
+            - References are removed from the activity
+            - Activity is release so that the garbage collector can
+                free the memory
+            - THIS IS NOT AN GUARANTEED CALL (state)
+
+    Two major ways to start activities:
+        startActivity(<INTENT>)
+            - When we just want to load an new activity and do not care
+                about any data produce from the activity being called.
+        startActivityForResult(<INTENT>, RequestCode)
+            - When we do want information back from the activity being called
+            - In the called activity (Data entry activity)
+                - Gather our information
+                - setResult(<Intent>, resultCode>)
+                    - the intent will hold the data being returned.
+                - finish()
+                    - marks the activity in the system to call onDestroy()
+            - In the calling activity (the activity that requested the data)
+                - override the onActivityResult method
+                    onActivityResult(Request code, Result code, Intent)
+                    - request code and result code to filter action on how
+                        to proceed with the data.
+Intents
+    - messaging system used by android to start components and transfer
+        data to the components
+
+    - 2 types of intents
+        - implicit
+            - we have an action we want to commit, but do not know what
+                component will handle the request
+            - val intent = Intent("<ACTION NAME>")
+            - implicit intent uses intent filters do decide what
+                    component(s) can handle the action
+        - explicit
+            - We know BOTH the context of the launching component
+                AND the exact component we want to launch
+
+            - val intent = Intent(context, JAVA CLASS OF COMPONENT);
+    - Passing data using intent
+        - 2 ways to pass data
+            - directly put the data into the intent
+                - ex: intent.putStringExtra("key", value);
+            - Use a bundle and associate the bundle with the intent
+                - ex: intent.putExtras(bundle)
+        - Limitations on types of data that can be passed
+            - primitive or basic object type
+                    (int, float, string, stringset..ect)
+            - object must be marshaled
+                - Serializable
+                    - JAVA native
+                    - Reflection
+                    - HORRIBLE WITH MEMORY CONSUMPTION
+                -Parcelable
+                    -ANDROID NATIVE
+                    - uses streams and developer defined packaging of the
+                        streams
+
+
