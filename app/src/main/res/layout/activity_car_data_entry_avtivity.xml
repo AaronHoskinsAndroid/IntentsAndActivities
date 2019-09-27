@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".CarDataActivity">
+
+    <EditText
+        android:id="@+id/etMake"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Make"/>
+
+    <EditText
+        android:id="@+id/etModel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Model"/>
+
+    <EditText
+        android:id="@+id/etYear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Year"/>
+
+    <EditText
+        android:id="@+id/etTransmission"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Transmission"/>
+
+    <EditText
+        android:id="@+id/etCylinders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Cylinders"/>
+
+    <Button
+        android:id="@+id/btnProcessData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Process Data"
+        android:onClick="onClick"/>
+
+</LinearLayout>

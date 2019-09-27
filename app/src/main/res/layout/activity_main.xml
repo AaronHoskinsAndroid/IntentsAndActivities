@@ -23,6 +23,17 @@
         android:background="@color/color_pink"
         android:textColor="#ffffff"/>
 
+    <Button
+        android:id="@+id/btnGetCarData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Car Data"/>
+
+    <TextView
+        android:id="@+id/tvCarInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 
 
 
